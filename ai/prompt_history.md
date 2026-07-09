@@ -82,3 +82,19 @@ Rscript ai/regression_r.r --filepath regression_data.csv --x-col YearsExperience
 ```
 
 Metrics unchanged: β₀=29203.52, β₁=8285.29, R²=0.7852, RMSE=4186.15.
+
+---
+
+## 2026-07-09 — PNG location + commit
+
+**User:** Move PNGs to ai directory; prepare for commit.
+
+**Action:** Moved PNGs; updated scripts to save beside script file; committed 9 files on `ai-coding` (`355cd68`).
+
+---
+
+## 2026-07-09 — Documentation
+
+**User:** Create general README for mixed audience; save entire chat in ai/ (user will commit README and push).
+
+**Action:** Created root `README.md`, `ai/PROMPTS.md` (key prompts for Part B), `ai/CHAT_SESSION.md` (full session transcript).
