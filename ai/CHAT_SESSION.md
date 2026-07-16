@@ -15,6 +15,7 @@ Complete log of the Cursor AI session used to produce the `ai/` deliverables for
 | Refine | Trim notebooks; move PNGs to `ai/`; commit on `ai-coding` |
 | Review | Compared `ai/` vs `manual/`; assignment rubric assessment |
 | Document | Root `README.md`, `PROMPTS.md`, this file |
+| Graph annotations | On-plot equation, R², MSE; MSE in console output |
 
 ---
 
@@ -143,6 +144,35 @@ git checkout main && git merge ai-coding && git push origin main && git checkout
 
 ---
 
+### Turn 13 — Graph annotation plan (2026-07-16)
+
+**User:** Make a plan to improve graphs in `ai/` (no manual/). Add MSE for both scripts; show MSE, equation, and R² on each graph. Scope: scripts and notebooks.
+
+**Agent:** Plan mode. Proposed upper-left annotation box, metric reordering before plot save, and parallel updates to `.py`, `.r`, and both `.ipynb` files.
+
+---
+
+### Turn 14 — Implement graph annotations
+
+**User:** Implement the plan as specified.
+
+**Agent actions:**
+
+1. Updated `regression_python.py` and `regression_r.r` — compute MSE before plotting; annotate with equation, R², MSE; print MSE to console  
+2. Updated regression-line cells in both notebooks to match scripts  
+3. Verified scripts and re-executed notebooks (`7030_class_2`, `ir_7030_class_2`)  
+4. Confirmed matching MSE ≈ 17,523,844 and annotations on `regression_python.png` / `regression_r.png`
+
+---
+
+### Turn 15 — HTML, logs, GitHub prep (this turn)
+
+**User:** Update HTML files to match; update logs in `ai/`; prepare to upload to GitHub.
+
+**Agent:** Regenerated HTML from notebooks; updated `prompt_history.md`, `PROMPTS.md`, `CHAT_SESSION.md`; staged commit on `ai-coding` for push.
+
+---
+
 ## Deliverables produced in `ai/`
 
 | File | Description |
@@ -166,7 +196,7 @@ git checkout main && git merge ai-coding && git push origin main && git checkout
 1. **Plan-first workflow** — User required planning before code; reduced rework.  
 2. **ggplot2 + explicit coefficients** — Teaching-friendly: fit with `lm()`, draw with `geom_abline()`, not opaque `geom_smooth()`.  
 3. **Named CLI flags** — AI chose argparse-style interface vs manual positional `sys.argv`.  
-4. **Extra metrics** — RMSE/MAE supplement R² without changing the core assignment tasks.  
+4. **Extra metrics** — RMSE/MAE/MSE supplement R²; equation and R²/MSE displayed on regression plots.  
 5. **Intentional isolation** — AI agent did not read `manual/` during initial build, preserving independent Part B work.
 
 ---
@@ -188,4 +218,4 @@ Rscript ai/regression_r.r \
   --y-col Salary
 ```
 
-Expected: exit code 0; PNGs in `ai/`; R² ≈ 0.7852.
+Expected: exit code 0; PNGs in `ai/`; R² ≈ 0.7852; MSE ≈ 17,523,844; plots show equation, R², and MSE in upper-left annotation box.
