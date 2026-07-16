@@ -65,16 +65,46 @@ main <- function() {
   formula <- as.formula(paste(args$y_col, "~", args$x_col))
   model <- lm(formula, data = df)
 
-  cat("\nIntercept (beta_0):", coef(model)[1], "\n")
-  cat("Slope (beta_1):    ", coef(model)[2], "\n")
+  intercept <- coef(model)[1]
+  slope <- coef(model)[2]
+
+  cat("\nIntercept (beta_0):", intercept, "\n")
+  cat("Slope (beta_1):    ", slope, "\n")
+
+  y_pred <- predict(model)
+  resid <- residuals(model)
+
+  r2 <- summary(model)$r.squared
+  mse <- mean(resid^2)
+  rmse <- sqrt(mse)
+  mae <- mean(abs(resid))
+
+  annotation <- paste0(
+    args$y_col, " = ", format(intercept, big.mark = ",", nsmall = 2, trim = TRUE),
+    " + ", format(slope, big.mark = ",", nsmall = 2, trim = TRUE),
+    " \u00d7 ", args$x_col, "\n",
+    "R\u00b2 = ", format(round(r2, 4), nsmall = 4, trim = TRUE), "\n",
+    "MSE = ", format(round(mse, 2), big.mark = ",", nsmall = 2, trim = TRUE)
+  )
 
   plot <- ggplot(df, aes(x = .data[[args$x_col]], y = .data[[args$y_col]])) +
     geom_point(size = 3, alpha = 0.8) +
     geom_abline(
-      intercept = coef(model)[1],
-      slope = coef(model)[2],
+      intercept = intercept,
+      slope = slope,
       color = "red",
       linewidth = 1
+    ) +
+    annotate(
+      "label",
+      x = min(df[[args$x_col]]),
+      y = max(df[[args$y_col]]),
+      label = annotation,
+      hjust = 0,
+      vjust = 1,
+      fill = "white",
+      alpha = 0.85,
+      size = 3.5
     ) +
     labs(
       title = paste(args$y_col, "vs", args$x_col),
@@ -86,17 +116,11 @@ main <- function() {
   ggsave(OUTPUT_PNG, plot, width = 8, height = 5, dpi = 150)
   cat("\nSaved plot:", OUTPUT_PNG, "\n")
 
-  y_pred <- predict(model)
-  resid <- residuals(model)
-
   cat("\n")
   print(summary(model))
 
-  r2 <- summary(model)$r.squared
-  rmse <- sqrt(mean(resid^2))
-  mae <- mean(abs(resid))
-
   cat("\nR-squared:", round(r2, 4), "\n")
+  cat("MSE:      ", round(mse, 2), "\n")
   cat("RMSE:     ", round(rmse, 2), "\n")
   cat("MAE:      ", round(mae, 2), "\n")
 }

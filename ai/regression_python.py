@@ -69,29 +69,47 @@ def main() -> int:
     print(f"\nIntercept (beta_0): {intercept:,.2f}")
     print(f"Slope (beta_1):     {slope:,.2f}")
 
+    y_pred = model.predict(X)
+    r2 = r2_score(y, y_pred)
+    mse = mean_squared_error(y, y_pred)
+    rmse = np.sqrt(mse)
+    mae = mean_absolute_error(y, y_pred)
+
     x_line = pd.DataFrame(
         {args.x_col: np.linspace(X[args.x_col].min(), X[args.x_col].max(), 100)}
     )
     y_line = model.predict(x_line)
 
-    plt.figure(figsize=(8, 5))
-    plt.scatter(df[args.x_col], df[args.y_col], alpha=0.8, label="Observed")
-    plt.plot(x_line[args.x_col], y_line, color="red", linewidth=2, label="Regression line")
-    plt.title(f"{args.y_col} vs {args.x_col}")
-    plt.xlabel(args.x_col)
-    plt.ylabel(args.y_col)
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig(OUTPUT_PNG, dpi=150, bbox_inches="tight")
-    plt.close()
+    annotation = (
+        f"{args.y_col} = {intercept:,.2f} + {slope:,.2f} × {args.x_col}\n"
+        f"R² = {r2:.4f}\n"
+        f"MSE = {mse:,.2f}"
+    )
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.scatter(df[args.x_col], df[args.y_col], alpha=0.8, label="Observed")
+    ax.plot(x_line[args.x_col], y_line, color="red", linewidth=2, label="Regression line")
+    ax.set_title(f"{args.y_col} vs {args.x_col}")
+    ax.set_xlabel(args.x_col)
+    ax.set_ylabel(args.y_col)
+    ax.legend()
+    ax.text(
+        0.02,
+        0.98,
+        annotation,
+        transform=ax.transAxes,
+        va="top",
+        ha="left",
+        fontsize=10,
+        bbox=dict(boxstyle="round,pad=0.4", facecolor="white", alpha=0.85),
+    )
+    fig.tight_layout()
+    fig.savefig(OUTPUT_PNG, dpi=150, bbox_inches="tight")
+    plt.close(fig)
     print(f"\nSaved plot: {OUTPUT_PNG}")
 
-    y_pred = model.predict(X)
-    r2 = r2_score(y, y_pred)
-    rmse = np.sqrt(mean_squared_error(y, y_pred))
-    mae = mean_absolute_error(y, y_pred)
-
     print(f"\nR-squared: {r2:.4f}")
+    print(f"MSE:       {mse:,.2f}")
     print(f"RMSE:      {rmse:,.2f}")
     print(f"MAE:       {mae:,.2f}")
 

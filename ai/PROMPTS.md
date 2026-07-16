@@ -41,3 +41,11 @@ The 3–5 most important prompts used to build the `ai/` folder. Full detail is 
 > I would first before you start this plan like to edit the notebooks to remove the predicted vs actual table and the residual plot cells, then implement this plan with the proper edits here.
 
 **Why it mattered:** Aligned notebook, HTML, and script scope by dropping diagnostic extras before export/script generation.
+
+---
+
+## 6. Graph annotations — MSE, equation, R²
+
+> I want you to make a plan to improve the graphs in the ai folder you have previously created without reading into my manual folders. I want you to add a Mean Squared Error (MSE) for both scripts and incorporate this, plus the equation, and the r2 value on each of the graphs.
+
+**Why it mattered:** Added on-plot model summary (regression equation, R², MSE) to scripts and notebooks; extended evaluation output with MSE while keeping RMSE/MAE.

@@ -98,3 +98,39 @@ Metrics unchanged: β₀=29203.52, β₁=8285.29, R²=0.7852, RMSE=4186.15.
 **User:** Create general README for mixed audience; save entire chat in ai/ (user will commit README and push).
 
 **Action:** Created root `README.md`, `ai/PROMPTS.md` (key prompts for Part B), `ai/CHAT_SESSION.md` (full session transcript).
+
+---
+
+## 2026-07-16 — Graph annotations: MSE, equation, R²
+
+**User:** Make a plan to improve the graphs in the ai folder (without reading manual/). Add Mean Squared Error (MSE) for both scripts and incorporate MSE, the regression equation, and R² on each graph. Scope: scripts and notebooks.
+
+**Action:** Planned upper-left annotation box on all regression plots; implemented across Python and R scripts and notebooks.
+
+### Changes
+
+- Reordered metric computation before plotting in `regression_python.py` and `regression_r.r`.
+- Added on-plot annotation: `y = β₀ + β₁ × x`, R², and MSE (semi-transparent text box, upper-left).
+- Added MSE to console output alongside existing R², RMSE, and MAE.
+- Mirrored changes in `regression_python.ipynb` and `regression_r.ipynb`.
+
+### Verification results
+
+| Metric | Python (sklearn) | R (lm) |
+|--------|------------------|--------|
+| Intercept (β₀) | 29,203.52 | 29,203.52 |
+| Slope (β₁) | 8,285.29 | 8,285.29 |
+| R² | 0.7852 | 0.7852 |
+| MSE | 17,523,844.08 | 17,523,844 |
+| RMSE | 4,186.15 | 4,186.15 |
+
+- Scripts: both PNGs show equation, R², and MSE in upper-left.
+- Notebooks: re-executed with `7030_class_2` / `ir_7030_class_2` kernels.
+
+---
+
+## 2026-07-16 — HTML export + GitHub prep
+
+**User:** Update HTML files to match; update logs in `ai/`; prepare to upload to GitHub.
+
+**Action:** Regenerated `regression_python.html` and `regression_r.html` from executed notebooks; updated `prompt_history.md`, `PROMPTS.md`, and `CHAT_SESSION.md`; committed and pushed on `ai-coding`.
