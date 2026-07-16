@@ -16,6 +16,8 @@ Complete log of the Cursor AI session used to produce the `ai/` deliverables for
 | Review | Compared `ai/` vs `manual/`; assignment rubric assessment |
 | Document | Root `README.md`, `PROMPTS.md`, this file |
 | Graph annotations | On-plot equation, R², MSE; MSE in console output |
+| Assignment 3 Part B | `CODE_REVIEW.md`, `README_AI.md`, prompt log restructure |
+| Code review | `CODE_REVIEW.md`; README rewrite; session log updates |
 
 ---
 
@@ -173,6 +175,26 @@ git checkout main && git merge ai-coding && git push origin main && git checkout
 
 ---
 
+### Turn 16 — Assignment 3 code review + AI README (2026-07-16)
+
+**User:** Review assignment3 PR diff (ignore Part C). Store comparison in `ai/CODE_REVIEW.md`. Generate in-depth README; update prompt logs; prepare commit upon approval.
+
+**User (follow-up):** Pasted full Assignment 3 brief — Part B requires `README_AI.md` (not overwriting manual root README), `PROMPTS.md` for commit messages / code review / README prompts, and addressing at least one substantive review comment.
+
+**Agent actions:**
+
+1. Reviewed `main...assignment_3` PR (Part A: annotated plots, MSE, scipy, `manual/` updates)  
+2. Reviewed `ai/` on `ai-coding` (Part B regression deliverables)  
+3. Wrote `ai/CODE_REVIEW.md` with rubric checklists and substantive findings table  
+4. Generated `ai/README_AI.md` (beginner + advanced); updated root `README.md` to match (Week 3 refresh)  
+5. Restructured `PROMPTS.md` for Assignment 3 Part B three tasks  
+6. Updated `prompt_history.md` and this file  
+7. Staged changes on `ai-coding` — commit pending user approval  
+
+**Key review findings (Part A PR):** R script ignores CLI column args; duplicate regression layers in R ggplot; r vs R² labeling inconsistency on Python plot.
+
+---
+
 ## Deliverables produced in `ai/`
 
 | File | Description |
@@ -186,8 +208,10 @@ git checkout main && git merge ai-coding && git push origin main && git checkout
 | `regression_python.png` | Sample plot output |
 | `regression_r.png` | Sample plot output |
 | `prompt_history.md` | Timestamped prompt/action log |
-| `PROMPTS.md` | 3–5 key prompts (Part B submission) |
+| `PROMPTS.md` | Assignment 3 Part B prompts (commits, review, README) + appendix |
 | `CHAT_SESSION.md` | This full session record |
+| `CODE_REVIEW.md` | Assignment 3 PR code review (Part B) |
+| `README_AI.md` | AI-generated README (Part B; root README unchanged) |
 
 ---
 

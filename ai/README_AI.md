@@ -1,5 +1,8 @@
 # Simple Linear Regression — Python & R (PAS 7030 Week 3 / Assignment 3)
 
+> **AI-generated README** (Assignment 3, Part B). Produced by Cursor from repository code and docs.  
+> Identical content lives at the repo root [`README.md`](../README.md) (updated from Week 2). Compare paths/roles for Part C reflection if needed.
+
 This repository implements the **same data-science workflow twice**: predict **Salary** from **Years of Experience** using simple linear regression (a straight-line statistical model). One version is hand-written (`manual/`); the other is AI-assisted (`ai/`).
 
 The guide below is written for **two audiences**:
@@ -7,9 +10,9 @@ The guide below is written for **two audiences**:
 - **Beginners** — plain-language steps to open notebooks, run scripts, and understand what the numbers mean.
 - **Advanced readers** — implementation details, git layout, environment setup on HPC, and how the two code paths differ.
 
-For a structured comparison of Part A vs Part B (excluding the Part C essay), see [`ai/CODE_REVIEW.md`](ai/CODE_REVIEW.md).
+For a structured comparison of Part A vs Part B (excluding the Part C essay), see [`CODE_REVIEW.md`](CODE_REVIEW.md).
 
-An identical copy of this README lives at [`ai/README_AI.md`](ai/README_AI.md) for Assignment 3 Part B submission and Part C comparison.
+An identical copy of this README lives at the repo root [`README.md`](../README.md).
 
 ---
 
@@ -63,7 +66,7 @@ linear-regression-jupyter/
 ├── environment.yml           # Conda environment (Python 3.10, Jupyter, R, IRkernel)
 ├── requirements.txt          # Python pip packages (pandas, matplotlib, scikit-learn, scipy)
 ├── setup_env.sh              # One-time HPC/class environment bootstrap
-├── README.md                 # This file (project README, updated Week 3)
+├── README.md                 # Project README (identical to ai/README_AI.md)
 ├── manual/                   # Part A — hand-written (no AI)
 │   ├── regression_python.ipynb / .html / .py
 │   ├── regression_r.ipynb / .html / .r
@@ -75,7 +78,7 @@ linear-regression-jupyter/
     ├── prompt_history.md     # Timestamped prompt/action log
     ├── CHAT_SESSION.md       # Full AI pair-programming session record
     ├── CODE_REVIEW.md        # Part A vs Part B code review (2026-07-16)
-    └── README_AI.md          # Copy of this README (Part B deliverable)
+    └── README_AI.md          # This file (Part B deliverable; same as root README)
 ```
 
 | Folder | Role |
@@ -381,11 +384,12 @@ jupyter nbconvert --execute --inplace regression_r.ipynb \
 
 | Document | Contents |
 |----------|----------|
-| [`ai/CODE_REVIEW.md`](ai/CODE_REVIEW.md) | Part A PR review, Part B review, side-by-side comparison, rubric checklists |
-| [`ai/PROMPTS.md`](ai/PROMPTS.md) | Condensed key prompts for Part B |
-| [`ai/prompt_history.md`](ai/prompt_history.md) | Timestamped prompt and action log |
-| [`ai/CHAT_SESSION.md`](ai/CHAT_SESSION.md) | Full AI pair-programming session transcript |
-| [`ai/README_AI.md`](ai/README_AI.md) | Copy of this README (Part B deliverable) |
+| [`CODE_REVIEW.md`](CODE_REVIEW.md) | Part A PR review, Part B review, side-by-side comparison, rubric checklists |
+| [`PROMPTS.md`](PROMPTS.md) | Condensed key prompts for Part B |
+| [`prompt_history.md`](prompt_history.md) | Timestamped prompt and action log |
+| [`CHAT_SESSION.md`](CHAT_SESSION.md) | Full AI pair-programming session transcript |
+| [`README_AI.md`](README_AI.md) | This file (Part B deliverable; same as root README) |
+| [`../README.md`](../README.md) | Project README at repo root |
 
 ---
 
