@@ -1,51 +1,90 @@
-# Key AI Prompts — Part B Deliverables
+# Key AI Prompts — Assignment 3, Part B
 
-The 3–5 most important prompts used to build the `ai/` folder. Full detail is in [`prompt_history.md`](prompt_history.md) and [`CHAT_SESSION.md`](CHAT_SESSION.md).
+Per Assignment 3 Part B, this file records prompts used for **(1) AI commit messages**, **(2) AI code review**, and **(3) AI-generated README**. Full session detail is in [`prompt_history.md`](prompt_history.md) and [`CHAT_SESSION.md`](CHAT_SESSION.md).
 
----
-
-## 1. Initial plan (no manual code peek)
-
-> I want to build a plan before we start any coding. I am needing both python and R notebooks using the 7030_class_2 kernel that can read a CSV file, create a scatter plot from these, fit a linear model, and overlay the regression model line, and then evaluate the model. Give me a comprehensive plan on the best way to conduct this and any other useful information (package info or model info) you can. **DO NOT LOOK AT MY WORK IN MANUAL.** All files at the end of this will need to be deposited into the ai directory and I wish for you to keep a running prompt history from this moment forward in the ai directory as well.
-
-**Why it mattered:** Set scope, parallel Python/R structure, kernel metadata, and isolated AI work from Part A.
+Earlier Week 2 prompts (notebooks, scripts, graph annotations) are listed in **Appendix A** below.
 
 ---
 
-## 2. Plan iteration — ggplot2 for R
+## 1. AI commit messages
 
-> ggplot2 is already in the environment, just manually installed and should be used for the r notebook, propose this in the new change.
+Used when staging and committing AI deliverables on `ai-coding`.
 
-**Why it mattered:** Switched R visualization from base R to ggplot2 with explicit `lm()` + `geom_abline()` (not hidden inside `geom_smooth()`).
+### Prompt A — Initial AI deliverables commit
+
+> Move PNGs to ai directory; get ready for commit.
+
+**Agent output (commit message used):**
+
+```
+Add AI regression deliverables with notebooks, CLI scripts, and HTML exports.
+```
+
+**Why it mattered:** First structured commit bundling all Part B regression artifacts under `ai/`.
+
+### Prompt B — Graph annotation commit
+
+> Update HTML files to match; update logs in ai/; prepare to upload to GitHub.
+
+**Agent output (commit message used):**
+
+```
+Add MSE and on-plot model annotations to AI regression deliverables.
+
+Surface the regression equation, R², and MSE on graphs and in console output
+across scripts, notebooks, HTML exports, and session logs.
+```
+
+**Why it mattered:** Multi-line message explains *why* (on-plot metrics), not just *what* changed — useful for future contributors reviewing history.
+
+### Prompt C — Assignment 3 documentation commit (pending approval)
+
+> Prepare this for a git commit upon my approval of the work conducted.
+
+**Suggested commit message:**
+
+```
+Add Assignment 3 Part B docs: code review, AI README, and prompt logs.
+
+Save AI PR review to CODE_REVIEW.md, generate README_AI.md without
+overwriting hand-written root README, and update session logs.
+```
 
 ---
 
-## 3. Execute the plan
+## 2. AI code review
 
-> Looks good, go ahead and begin building the notebooks.
+### Prompt — Review assignment3 PR diff
 
-**Why it mattered:** Approved transition from plan mode to implementation; produced both `.ipynb` files and verification.
+> I want you to review my assignment3 PR diff. Here is the assignment 3. I want you to ignore part C right now. I would like you to do this comparison first. Once this is done and stored properly at ai/CODE_REVIEW.md.
 
----
+*(User subsequently pasted full Assignment 3 brief clarifying Part A/B/C deliverables, directory structure, and that README must be saved as `ai/README_AI.md`.)*
 
-## 4. HTML + CLI scripts with arguments
-
-> Take these notebooks, convert them into HTML and script files, the script files need to be runable and the output needs the model fit line overlayed with scatter plot saved as a .png. The script files need to be able to accept command line arguments for the filepath, x_col, and y_col.
-
-**Why it mattered:** Expanded deliverables beyond notebooks to HTML exports and parameterized CLI scripts with PNG output.
+**Why it mattered:** Produced [`CODE_REVIEW.md`](CODE_REVIEW.md) comparing `main...assignment_3` (Part A manual PR) against `ai/` (Part B), with rubric checklists and substantive findings (R script column bug, duplicate ggplot layers, r vs R² labeling).
 
 ---
 
-## 5. Trim notebooks, then implement
+## 3. AI-generated README
 
-> I would first before you start this plan like to edit the notebooks to remove the predicted vs actual table and the residual plot cells, then implement this plan with the proper edits here.
+### Prompt — In-depth README for mixed audience
 
-**Why it mattered:** Aligned notebook, HTML, and script scope by dropping diagnostic extras before export/script generation.
+> After the comparison is done, have an AI generate a fresh README from your code. Save it as ai/README_AI.md (don't overwrite your manual README). Make it in depth for both beginners and advanced coders.
+
+**Why it mattered:** Generated [`README_AI.md`](README_AI.md) with table of contents, beginner quick start, advanced env/git sections. Root [`README.md`](../README.md) updated to the same content (Week 3 refresh from Week 2).
 
 ---
 
-## 6. Graph annotations — MSE, equation, R²
+## Appendix A — Week 2 Part B regression build (prior prompts)
 
-> I want you to make a plan to improve the graphs in the ai folder you have previously created without reading into my manual folders. I want you to add a Mean Squared Error (MSE) for both scripts and incorporate this, plus the equation, and the r2 value on each of the graphs.
+These supported the original AI regression rebuild (Assignment 2 Part B), not Assignment 3 workflow tasks specifically.
 
-**Why it mattered:** Added on-plot model summary (regression equation, R², MSE) to scripts and notebooks; extended evaluation output with MSE while keeping RMSE/MAE.
+| # | Summary |
+|---|---------|
+| 1 | Plan Python + R notebooks (`7030_class_2` kernel); do not read `manual/` |
+| 2 | Use ggplot2 for R notebook |
+| 3 | Execute plan — build notebooks |
+| 4 | Export HTML + CLI scripts with `--filepath`, `--x-col`, `--y-col` |
+| 5 | Trim notebooks (remove residual plot cells) before export |
+| 6 | Add MSE, equation, and R² on graphs in `ai/` |
+
+See [`prompt_history.md`](prompt_history.md) for verbatim prompts and verification tables.

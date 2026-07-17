@@ -134,3 +134,38 @@ Metrics unchanged: β₀=29203.52, β₁=8285.29, R²=0.7852, RMSE=4186.15.
 **User:** Update HTML files to match; update logs in `ai/`; prepare to upload to GitHub.
 
 **Action:** Regenerated `regression_python.html` and `regression_r.html` from executed notebooks; updated `prompt_history.md`, `PROMPTS.md`, and `CHAT_SESSION.md`; committed and pushed on `ai-coding`.
+
+---
+
+## 2026-07-16 — Assignment 3 Part B: code review + AI README (Part C deferred)
+
+**User:** Review assignment3 PR diff (ignore Part C). Store comparison in `ai/CODE_REVIEW.md`. Generate in-depth README; update prompt logs; prepare commit upon approval.
+
+**User (follow-up):** Pasted full Assignment 3 brief clarifying Part B deliverables: `README_AI.md` (do not overwrite manual README), `PROMPTS.md` for three AI tasks, address ≥1 substantive review comment.
+
+**Action:** Completed Assignment 3 Part B documentation on `ai-coding`. Root `README.md` updated to match `ai/README_AI.md` (Week 3 refresh from Week 2 AI README).
+
+### Review outputs
+
+| File | Purpose |
+|------|---------|
+| `ai/CODE_REVIEW.md` | Review of `main...assignment_3` PR + `ai/` deliverables; rubric checklists; substantive findings table |
+| `ai/README_AI.md` | AI-generated in-depth README (beginner + advanced) |
+| `README.md` (root) | Updated to match `README_AI.md` (Week 3 refresh from Week 2) |
+
+### Part A PR findings (summary)
+
+- **Strengths:** MSE + equation annotations; `scipy` in requirements; numerically correct metrics on sample data.
+- **Substantive issues:** R script hardcodes `Salary`/`YearsExperience` despite CLI args; R ggplot uses both `geom_line` and `geom_smooth`; Python plot labels **r** while evaluation prints **R²**; inconsistent PNG filenames between notebook and script.
+
+### Part B status
+
+- Regression deliverables complete; Assignment 3 workflow docs added.
+
+### Logs updated
+
+- `PROMPTS.md` — restructured for commit messages, code review, README prompts
+- `prompt_history.md` — this entry
+- `CHAT_SESSION.md` — Turn 16
+
+**Pending:** User approval before git commit on `ai-coding`.
